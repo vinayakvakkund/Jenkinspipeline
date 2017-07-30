@@ -15,6 +15,7 @@ stage('Test')
  stage('Artifactory configuration') {
         // Tool name from Jenkins configuration
         rtMaven.tool = "MyMaven"
+		descriptor.pomFile = 'SpringMVC/pom.xml'
 		descriptor.setVersion "the.group.id:the.artifact.id", "1.0.1"
 		descriptor.transform()
         // Set Artifactory repositories for dependencies resolution and artifacts deployment.
@@ -25,7 +26,7 @@ stage('Test')
 stage('Compile') 
  {
  echo "printing name '${name}'"
- buildInfo = rtMaven.run pom: 'SpringMVC/pom.xml', goals: 'clean install -Dbuild.number=${BUILD_NUMBER}'
+ buildInfo = rtMaven.run pom: 'SpringMVC/pom.xml', goals: 'clean install'
  //buildInfo=bat 'mvn -f SpringMVC/pom.xml clean install'
  }
  stage('Publish build info') {
