@@ -15,7 +15,7 @@ stage('Test')
  stage('Artifactory configuration') {
         // Tool name from Jenkins configuration
         rtMaven.tool = "MyMaven"
-		descriptor.version = '1.0.0-SNAPSHOT-2'
+		descriptor.version = '1.01-2-SNAPSHOT'
 		descriptor.pomFile = 'SpringMVC/pom.xml'
 		descriptor.setVersion "Myapp:1", "1.0.1"
 		descriptor.transform()
