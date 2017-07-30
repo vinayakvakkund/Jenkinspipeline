@@ -15,8 +15,9 @@ stage('Test')
  stage('Artifactory configuration') {
         // Tool name from Jenkins configuration
         rtMaven.tool = "MyMaven"
+		descriptor.version = '1.0.0'
 		descriptor.pomFile = 'SpringMVC/pom.xml'
-		descriptor.setVersion "the.group.id:the.artifact.id", "1.0.1"
+		descriptor.setVersion "Myapp:1", "1.0.1"
 		descriptor.transform()
         // Set Artifactory repositories for dependencies resolution and artifacts deployment.
         rtMaven.deployer releaseRepo:'libs-release-local', snapshotRepo:'libs-snapshot-local', server: server
