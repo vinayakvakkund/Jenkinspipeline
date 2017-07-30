@@ -21,8 +21,8 @@ stage('Test')
 stage('Compile') 
  {
  echo "printing name '${name}'"
- buildInfo = rtMaven.run pom: 'SpringMVC/pom.xml', goals: 'clean install'
- //bat 'mvn -f SpringMVC/pom.xml clean install'
+ //buildInfo = rtMaven.run pom: 'SpringMVC/pom.xml', goals: 'clean install'
+ buildInfo=bat 'mvn -f SpringMVC/pom.xml clean install'
  }
  stage('Publish build info') {
         server.publishBuildInfo buildInfo
