@@ -13,7 +13,7 @@ stage('Test')
  }
     stage ('Artifactory configuration')
 	{
-        rtGradle.tool = GRADLE_TOOL // Tool name from Jenkins configuration
+        rtGradle.tool = "GRADLE_TOOL" // Tool name from Jenkins configuration
         rtGradle.deployer repo:'libs-release-local', server: server
         rtGradle.resolver repo:'libs-release', server: server
 }
