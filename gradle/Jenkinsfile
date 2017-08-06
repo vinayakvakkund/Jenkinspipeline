@@ -1,5 +1,6 @@
 node {
-    def server = Artifactory.newServer "Artifactory"
+    //def server = Artifactory.newServer "Artifactory"
+	def server = Artifactory.server "Artifactory"
     def rtGradle = Artifactory.newGradleBuild()
 
     
